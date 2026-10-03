@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/lunam/MCEI_2620/C_C++/parte_practica/build",
+  "command": "/usr/bin/g++  -isystem /usr/include/eigen3 -g -std=gnu++17 -o CMakeFiles/part1.dir/part1.cpp.o -c /home/lunam/MCEI_2620/C_C++/parte_practica/part1.cpp",
+  "file": "/home/lunam/MCEI_2620/C_C++/parte_practica/part1.cpp",
+  "output": "CMakeFiles/part1.dir/part1.cpp.o"
+}
+]
