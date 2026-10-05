@@ -1,0 +1,37 @@
+========================================================================
+ TALLER: DIFERENCIACION NUMERICA - CINEMATICA DIFERENCIAL DE UN ROBOT
+ Comparacion de resultados   (GNU Octave / Python-NumPy / C-GSL)
+========================================================================
+Datos  : trayectoria_robot.csv  |  51 muestras  |  h = 0.2 s  |  t en [0, 10]
+
+------------------------------------------------------------------------
+ A. RESULTADOS NUMERICOS
+------------------------------------------------------------------------
+Los tres entornos producen los MISMOS valores (la unica
+diferencia es el redondeo de impresion). Se tabula una sola columna por
+magnitud: el metodo numerico es uno, cambia solo la herramienta.
+
+  i   t[s]      vx        vy         v[m/s]   theta[rad]   omega[rad/s]
+  0   0.0    0.195757  0.506071   0.542613   1.201706    -0.108898
+ 10   2.0    0.431739  0.605606   0.743746   0.951463    -0.076616
+ 25   5.0    0.687081  0.604898   0.915414   0.721873    -0.101285
+ 40   8.0    1.118801  0.440340   1.202338   0.374962    -0.101673
+ 50  10.0    1.538195  0.369491   1.581951   0.235744    -0.023407
+
+
+------------------------------------------------------------------------
+ B. COMPARACION POR CRITERIO  (lo que pide la seccion 7 de la guia)
+------------------------------------------------------------------------
+ Criterio                 | Octave            | Python            | C/C++ + GSL
+ -------------------------+-------------------+-------------------+------------------
+ Carga de datos           | dlmread, 1 linea  | np.loadtxt,1 linea| fopen/sscanf,~8 lin
+ Calculo de vx,vy         | indexado vectorial| np.gradient,1 lin | bucle for manual
+ Calculo de v             | vectorizado       | vectorizado       | bucle, sqrt x punto
+ Calculo de theta         | unwrap(atan2)nat. | np.unwrap nativo  | atan2 + unwrap manual
+ Calculo de omega         | central manual    | np.gradient       | central manual
+ Manejo de arreglos       | nativo, 1-indexado| NumPy, 0-indexado | estatico, MAXN fijo
+ Facilidad implementacion | Alta              | Muy alta          | Baja
+ Control del algoritmo    | Medio-alto        | Medio             | Muy alto
+ Tiempo de ejecucion      | interpretado, ms  | interpretado, ms  | compilado, us
+ Resultado numerico       | identico          | identico          | identico
+========================================================================
