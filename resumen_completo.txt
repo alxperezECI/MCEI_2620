@@ -1,0 +1,50 @@
+=====================================================================
+  TALLER: ANÁLISIS COMPARATIVO DE MÉTODOS NUMÉRICOS (OCTAVE, C, PYTHON)
+=====================================================================
+
+---------------------------------------------------------------------
+EJERCICIO 1: INTEGRACIÓN DE FUNCIÓN CONTINUA EN [0.0, 1.2] (N = 100)
+---------------------------------------------------------------------
+Valor de referencia exacto: I_ref = 2.55982451
+
+Resultados de Integración Numérica:
+1. Regla del Rectángulo (Izq) : 2.62931236 | Error: 6.95e-02
+2. Regla del Trapecio         : 2.62946045 | Error: 6.96e-02
+3. Regla de Simpson 1/3      : 2.62946363 | Error: 6.96e-02
+4. C (GSL qags adaptativo)   : 2.55982451 | Error: ~1.10e-09
+5. Python (SciPy quad)       : 2.55982451 | Error: ~1.45e-10
+
+---------------------------------------------------------------------
+EJERCICIO 2: INTEGRACIÓN Y DIFERENCIACIÓN DE DATOS DISCRETOS EN [0.0, 9.8]
+---------------------------------------------------------------------
+Archivo base: datos_sensor.csv (50 mediciones, h = 0.2000)
+Valor de referencia adaptativo (SciPy): I_ref = 21.19211310
+
+A. Resultados de Integración Numérica:
+- Regla del Rectángulo (Izq) : 21.15974341  (Todos los lenguajes)
+- Regla del Trapecio         : 21.19084634  (Todos los lenguajes)
+- Simpson 1/3 (Octave)       : 20.69747155  (Fórmula rígida)
+- Simpson 1/3 (C)            : 21.02742922  (Iteración por bucle)
+- Simpson 1/3 (SciPy Python) : 21.19211310  (Ajuste adaptativo de bordes)
+
+B. Muestras de Diferenciación Numérica (dy/dx):
+- Extremo Inicial x=0.0 (Adelante O(h))   :  0.209017
+- Punto Central   x=0.2 (Centrada O(h^2)) :  0.147110
+- Extremo Final   x=9.8 (Atrás O(h))      : -0.068266
+
+---------------------------------------------------------------------
+NOTAS Y RESPUESTAS CLAVE PARA EL INFORME:
+---------------------------------------------------------------------
+1. Diferenciación de dominios entre Ejercicios:
+   - Ejercicio 1: Se integra la función en el dominio acotado [0.0, 1.2] (I_ref = 2.55982451).
+   - Ejercicio 2: Se integra la serie del sensor en el intervalo completo [0.0, 9.8] (I_ref = 21.19211310).
+
+2. Discrepancia en Simpson (Ejercicio 2):
+   - N = 50 puntos implica 49 subintervalos (número impar).
+   - Octave y C aplican la regla estricta generando un desajuste en el último intervalo.
+   - SciPy en Python aplica una regla mixta (Simpson + Trapecio al final) para corregir el borde.
+
+3. Precisión en Diferenciación (Ejercicio 2):
+   - La diferencia centrada O(h^2) usada en los puntos intermedios ofrece mayor precisión 
+     que los esquemas O(h) aplicados en los extremos.
+=====================================================================
