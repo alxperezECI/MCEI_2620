@@ -1,0 +1,10 @@
+Elementos: 10000000; procesos: 1
+Reparto: [10000000]
+Promedio: 5000001.500000
+Esperado: 5000001.500000
+Error absoluto: 0.000e+00
+Inicializar a: 0.029328 s
+Inicializar b: 3.440450 s
+Sumar arreglos: 5.662883 s
+Sumar elementos y comunicar: 3.522199 s
+Tiempo total (maximo): 12.654873 s

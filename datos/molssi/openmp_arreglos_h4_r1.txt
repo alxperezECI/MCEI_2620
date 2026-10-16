@@ -1,0 +1,7 @@
+Initialize a time: 0.038004
+Initialize b time: 0.033418
+Add arrays time: 0.015995
+Average result time: 0.007569
+
+Average: 5000001.500000
+Total time: 0.103144

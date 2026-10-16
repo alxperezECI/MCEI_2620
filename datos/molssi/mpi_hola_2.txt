@@ -1,0 +1,2 @@
+Hola desde el proceso 0 de 2
+Hola desde el proceso 1 de 2
