@@ -1,0 +1,9 @@
+n=1000000; 9 repeticiones; compilador 13.3.0; OpenMP=201511
+Trapecio secuencial hilos=1 I=1.999999999998 error=1.651e-12 tiempo=0.021841 s speedup=1.00
+Trapecio paralelo   hilos=1 I=1.999999999998 error=1.651e-12 tiempo=0.018738 s speedup=1.17
+Trapecio paralelo   hilos=2 I=1.999999999998 error=1.645e-12 tiempo=0.017634 s speedup=1.24
+Trapecio paralelo   hilos=4 I=1.999999999998 error=1.647e-12 tiempo=0.017925 s speedup=1.22
+Simpson  secuencial hilos=1 I=2.000000000000 error=1.354e-14 tiempo=0.024169 s speedup=1.00
+Simpson  paralelo   hilos=1 I=2.000000000000 error=1.354e-14 tiempo=0.021322 s speedup=1.13
+Simpson  paralelo   hilos=2 I=2.000000000000 error=5.107e-15 tiempo=0.018399 s speedup=1.31
+Simpson  paralelo   hilos=4 I=2.000000000000 error=3.553e-15 tiempo=0.020688 s speedup=1.17
