@@ -1,0 +1,8 @@
+Consulta: 100 Valores: [ 151.5   10.8 1636.2]
+Limites IQR del voltaje: (np.float64(115.85875000000001), np.float64(124.06875))
+Voltaje atipico por IQR: True
+Vecinos exhaustivos: [47 80 20 82  3]
+Vecinos KDTree: [47 80 20 82  3]
+Distancias exhaustivas: [21.06424646 21.21978829 21.27856497 21.3648378  21.40990996]
+Distancias KDTree: [21.06424646 21.21978829 21.27856497 21.3648378  21.40990996]
+Coinciden los conjuntos: True
