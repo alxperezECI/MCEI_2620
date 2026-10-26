@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/punto_1.dir/punto_1.cpp.o -o punto_1  /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

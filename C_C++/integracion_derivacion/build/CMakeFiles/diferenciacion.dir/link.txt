@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/diferenciacion.dir/diferenciacion.cpp.o -o diferenciacion  /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

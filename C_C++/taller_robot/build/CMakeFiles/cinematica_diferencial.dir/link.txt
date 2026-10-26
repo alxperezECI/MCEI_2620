@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/cinematica_diferencial.dir/cinematica_diferencial.cpp.o -o cinematica_diferencial  /usr/lib/x86_64-linux-gnu/libgsl.so /usr/lib/x86_64-linux-gnu/libgslcblas.so 

@@ -1,0 +1,5 @@
+/home/david_r/MCEI_2620/C_C++/integracion_derivacion/build/CMakeFiles/punto_1.dir
+/home/david_r/MCEI_2620/C_C++/integracion_derivacion/build/CMakeFiles/punto_2.dir
+/home/david_r/MCEI_2620/C_C++/integracion_derivacion/build/CMakeFiles/diferenciacion.dir
+/home/david_r/MCEI_2620/C_C++/integracion_derivacion/build/CMakeFiles/edit_cache.dir
+/home/david_r/MCEI_2620/C_C++/integracion_derivacion/build/CMakeFiles/rebuild_cache.dir

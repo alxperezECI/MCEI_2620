@@ -1,0 +1,3 @@
+/home/david_r/MCEI_2620/C_C++/taller_robot/build/CMakeFiles/cinematica_diferencial.dir
+/home/david_r/MCEI_2620/C_C++/taller_robot/build/CMakeFiles/edit_cache.dir
+/home/david_r/MCEI_2620/C_C++/taller_robot/build/CMakeFiles/rebuild_cache.dir
