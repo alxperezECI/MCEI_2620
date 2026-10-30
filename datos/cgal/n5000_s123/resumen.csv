@@ -1,0 +1,2 @@
+n,semilla,dimension,vertices_hull,vertices,aristas_finitas,caras_finitas,hull_ms,delaunay_ms,valida,euler
+5000,123,2,20,5000,14977,9978,0.48565000000000003,6.0511910000000002,1,1

@@ -1,0 +1,10 @@
+Puntos generados: 100
+Vertices de la envolvente: 11
+Vertices distintos: 100
+Aristas finitas: 286
+Caras finitas: 187
+Triangulacion valida: true
+V - E + F (sin cara exterior): 1
+Tiempo envolvente: 0.028325 ms
+Tiempo Delaunay: 0.098633 ms
+Archivos guardados en: "datos/cgal/n100_s42"

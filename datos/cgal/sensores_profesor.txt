@@ -1,0 +1,10 @@
+Sensores leidos: 100
+Vertices de la envolvente: 12
+Vertices distintos: 100
+Aristas finitas: 285
+Caras finitas: 186
+Triangulacion valida: true
+V - E + F (sin cara exterior): 1
+Tiempo envolvente: 0.02695 ms
+Tiempo Delaunay: 3.09705 ms
+Archivos guardados en: "datos/cgal/sensores_profesor"

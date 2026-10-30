@@ -1,0 +1,7 @@
+exponente,epsilon_double,cy_double,determinante_double,orientacion_epick,epeck_desde_double,epeck_racional
+8,1.0000000000000002e-08,2.0000000099999999,9.9999999392252903e-09,izquierda,izquierda,izquierda
+12,1.0000000000000002e-12,2.0000000000010001,1.000088900582341e-12,izquierda,izquierda,izquierda
+15,1.0000000000000001e-15,2.0000000000000009,8.8817841970012523e-16,izquierda,izquierda,izquierda
+16,1.0000000000000001e-16,2,0,colineales,colineales,izquierda
+17,1.0000000000000001e-17,2,0,colineales,colineales,izquierda
+20,1.0000000000000001e-20,2,0,colineales,colineales,izquierda

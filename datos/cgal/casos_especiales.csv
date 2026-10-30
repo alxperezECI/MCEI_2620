@@ -1,0 +1,4 @@
+caso,puntos_entrada,dimension,vertices_hull,vertices_distintos,aristas_finitas,caras_finitas,euler,verificado
+repetidos,8,2,4,5,8,4,1,1
+colineales,5,1,2,5,4,0,1,1
+cocirculares,4,2,4,4,5,2,1,1

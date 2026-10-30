@@ -1,0 +1,15 @@
+n= 100, semilla=  42: hull=11, envolvente=0.029242 ms, Delaunay=0.098358 ms
+n= 100, semilla= 123: hull=10, envolvente=0.030158 ms, Delaunay=0.139517 ms
+n= 100, semilla=2026: hull=13, envolvente=0.023925 ms, Delaunay=0.102575 ms
+n= 500, semilla=  42: hull=17, envolvente=0.059767 ms, Delaunay=0.486842 ms
+n= 500, semilla= 123: hull=16, envolvente=0.058300 ms, Delaunay=0.584375 ms
+n= 500, semilla=2026: hull=16, envolvente=0.086442 ms, Delaunay=0.688233 ms
+n=1000, semilla=  42: hull=17, envolvente=0.139241 ms, Delaunay=1.118059 ms
+n=1000, semilla= 123: hull=18, envolvente=0.114400 ms, Delaunay=1.239333 ms
+n=1000, semilla=2026: hull=15, envolvente=0.118159 ms, Delaunay=1.064800 ms
+n=5000, semilla=  42: hull=20, envolvente=0.495092 ms, Delaunay=5.985650 ms
+n=5000, semilla= 123: hull=20, envolvente=0.500317 ms, Delaunay=5.459392 ms
+n=5000, semilla=2026: hull=16, envolvente=0.558983 ms, Delaunay=5.217667 ms
+
+60 mediciones guardadas; validacion y reproducibilidad correctas.
+Los CSV geometricos de cada caso corresponden a su ultima ejecucion.
