@@ -1,0 +1,6 @@
+cmake_minimum_required( VERSION 3.20 )
+project( intro_cgal )
+set(CMAKE_BUILD_TYPE Release)
+find_package(CGAL REQUIRED)
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} CGAL::CGAL)
