@@ -1,0 +1,3 @@
+/home/lunam/MCEI_2620/taller_cgal/build/CMakeFiles/taller_cgal.dir
+/home/lunam/MCEI_2620/taller_cgal/build/CMakeFiles/edit_cache.dir
+/home/lunam/MCEI_2620/taller_cgal/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/taller_cgal.dir/link.d CMakeFiles/taller_cgal.dir/main.cpp.o -o taller_cgal  /home/lunam/vcpkg/installed/x64-linux/debug/lib/libgmpxx.a /home/lunam/vcpkg/installed/x64-linux/debug/lib/libmpfr.a /home/lunam/vcpkg/installed/x64-linux/debug/lib/libgmp.a
