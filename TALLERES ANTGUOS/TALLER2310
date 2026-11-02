@@ -1,0 +1,73 @@
+PREGUNTAS
+
+
+1) La diferencia conceptual principal entre un método basado en distancias como KNN (K-Nearest Neighbors) y una estructura espacial como el kd-tree radica en su enfoque y propósito.
+KNN es un algoritmo de aprendizaje supervisado que se utiliza para clasificación y regresión. Su funcionamiento se basa en calcular la distancia entre un punto de prueba y los puntos de entrenamiento, seleccionando los K vecinos más cercanos para tomar decisiones sobre la clase o el valor del punto de prueba. KNN no requiere una estructura de datos específica para almacenar los puntos de entrenamiento, ya que realiza cálculos de distancia en tiempo real.
+Por otro lado, un kd-tree es una estructura de datos que organiza puntos en un espacio k-dimensional para permitir búsquedas eficientes. Se utiliza principalmente para acelerar consultas de vecinos más cercanos y otras operaciones espaciales. El kd-tree divide el espacio en regiones mediante hiperplanos, lo que permite reducir el número de comparaciones necesarias al buscar vecinos cercanos, mejorando así la eficiencia del algoritmo KNN cuando se utiliza junto con esta estructura.
+En resumen, KNN se centra en la toma de decisiones basada en distancias entre puntos, mientras que el kd-tree se enfoca en la organización y optimización del almacenamiento de datos espaciales para facilitar búsquedas rápidas.
+
+2)Los escenarios prácticos en los que KNN puede ser más eficiente que un método basado en kd-tree incluyen:
+1. **Pequeños conjuntos de datos**: Cuando se trabaja con un conjunto de datos
+    relativamente pequeño, la sobrecarga de construir y mantener un kd-tree puede no justificarse, y KNN puede ofrecer resultados rápidos sin necesidad de estructuras adicionales.
+2. **Datos dinámicos**: En situaciones donde los datos cambian con frecuencia (por ejemplo, en tiempo real), KNN puede ser más eficiente ya que no requiere reconstruir la estructura del kd-tree cada vez que se agregan o eliminan puntos de datos.
+
+3)El impacto de la dimensionalidad y el tamaño de los datos en el desempeño de KNN y kd-tree es significativo:
+1. **Dimensionalidad**: A medida que aumenta la dimensionalidad de los datos,
+la distancia entre los puntos tiende a volverse menos significativa debido al fenómeno conocido como la "maldición de la dimensionalidad". Esto puede afectar negativamente el desempeño de KNN, ya que los vecinos más cercanos pueden no ser representativos de la clase o valor del punto de prueba. En el caso del kd-tree, la eficiencia de las búsquedas también disminuye con la alta dimensionalidad, ya que el árbol se vuelve menos equilibrado y las regiones de búsqueda se vuelven más complejas.
+2. **Tamaño de los datos**: A medida que el tamaño del conjunto de datos
+    aumenta, KNN puede volverse más lento debido a la necesidad de calcular distancias para todos los puntos de entrenamiento. En contraste, un kd-tree puede manejar conjuntos de datos más grandes de manera más eficiente, ya que permite búsquedas rápidas mediante la estructura del árbol. Sin embargo, la construcción del kd-tree también puede ser costosa en términos de tiempo y memoria para conjuntos de datos muy grandes.
+
+4) La elección de la métrica de distancia influye de manera significativa en los resultados de KNN, ya que determina cómo se calcula la proximidad entre los puntos de datos. Diferentes métricas pueden producir diferentes conjuntos de vecinos más cercanos, lo que a su vez afecta la clasificación o regresión del punto de prueba. Por ejemplo, la distancia euclidiana es sensible a la magnitud de las diferencias entre características, mientras que la distancia Manhattan puede ser más adecuada para datos con características que tienen diferentes escalas o unidades. La elección de la métrica debe basarse en la naturaleza de los datos y el problema específico que se está abordando.
+
+5) Al implementar métodos como KNN y kd-tree en sistemas de ingeniería eléctrica de gran escala, podrían surgir varias limitaciones prácticas:
+1. **Escalabilidad**: A medida que el tamaño del sistema eléctrico aumenta, la cantidad de datos generados también crece, lo que puede hacer que KNN sea ineficiente
+    debido a la necesidad de calcular distancias para un gran número de puntos. La construcción y mantenimiento de un kd-tree también puede volverse costosa en términos de tiempo y memoria.
+2. **Dimensionalidad alta**: Los sistemas eléctricos pueden tener múltiples variables y características, lo que puede llevar a problemas de alta dimensionalidad. Esto puede afectar negativamente el desempeño de ambos métodos, ya que KNN puede volverse menos preciso y kd-tree puede perder eficiencia en la búsqueda de vecinos cercanos.
+3. **Tiempo de respuesta**: En aplicaciones en tiempo real, como la monitorización y
+    control de sistemas eléctricos, la velocidad de respuesta es crucial. KNN puede ser demasiado lento para proporcionar resultados en tiempo real debido a la necesidad de calcular distancias para todos los puntos de entrenamiento. Aunque kd-tree puede mejorar la eficiencia, la construcción inicial del árbol y las actualizaciones pueden introducir retrasos.
+4. **Sensibilidad al ruido**: Los sistemas eléctricos pueden estar sujetos a ruido y fluctuaciones en los datos. KNN puede ser sensible a estos ruidos, lo que puede afectar la precisión de las predicciones. El kd-tree también puede verse afectado si los datos ruidosos alteran la estructura del árbol.
+5. **Requerimientos de memoria**: Ambos métodos pueden requerir una cantidad significativa de memoria para almacenar los datos y las estructuras necesarias, especialmente en sistemas eléctricos de gran escala con múltiples sensores y mediciones. Esto puede ser un desafío en entornos con recursos limitados.
+
+
+DATOS
+
+
+=== Sensor Anómalo Detectado (Índice 81) ===
+muestra                82
+voltaje_V           12447
+corriente_A           537
+potencia_W_aprox    66262
+Name: 81, dtype: int64
+--------------------------------------------------
+--- Resultados con KNN Estándar ---
+Vecino 1 | Índice: 50 | Distancia: 344.9188
+Vecino 2 | Índice: 68 | Distancia: 382.0798
+Vecino 3 | Índice: 76 | Distancia: 476.9612
+Vecino 4 | Índice: 29 | Distancia: 749.0387
+Vecino 5 | Índice: 14 | Distancia: 838.9029
+
+
+--- Resultados usando kd-tree ---
+Vecino 1 | Índice: 50 | Distancia: 344.9188
+Vecino 2 | Índice: 68 | Distancia: 382.0798
+Vecino 3 | Índice: 76 | Distancia: 476.9612
+Vecino 4 | Índice: 29 | Distancia: 749.0387
+Vecino 5 | Índice: 14 | Distancia: 838.9029
+
+
+--- Comparación de Tiempos de Ejecución ---
+Tiempo KNN (automático/fuerza bruta): 0.003681 segundos
+Tiempo kd-tree:                       0.002890 segundos
+
+3. 
+Al comparar los resultados obtenidos mediante ambos enfoques, se evidencia que tanto el algoritmo KNN estándar como la estructura espacial kd-tree son altamente eficientes, arrojando exactamente los mismos resultados en la identificación de los vecinos cercanos. Esta identidad en las salidas confirma la consistencia matemática de ambas implementaciones al evaluar la misma métrica de distancia euclidiana en el espacio multidimensional.
+
+Asimismo, al analizar el rendimiento computacional, la diferencia en los tiempos de ejecución es prácticamente imperceptible (de apenas 0.0008 segundos en este conjunto de datos). Esto ocurre porque, al tratarse de un dataset de tamaño reducido (100 muestras), la sobrecarga computacional necesaria para construir el árbol jerárquico del kd-tree se equipara casi por completo a la búsqueda por fuerza bruta del KNN estándar. Sin embargo, la estructura de partición espacial del kd-tree demuestra superioridad teórica y escalabilidad para sistemas eléctricos industriales de gran escala con miles de sensores en tiempo real.
+
+
+4. Para un sistema de monitoreo en tiempo real en ingeniería eléctrica, el método más adecuado es el kd-tree. Aunque en nuestro taller con pocos datos la diferencia de tiempo fue mínima, en la vida real una planta eléctrica maneja miles de sensores enviando datos segundo a segundo. En ese escenario, el KNN estándar se vuelve muy lento porque revisa todo uno por uno , mientras que el kd-tree organiza los datos como un mapa en árbol para encontrar las anomalías casi de inmediato. En pocas palabras, el kd-tree le da la agilidad y velocidad que un sistema de protección eléctrica necesita para reaccionar a tiempo ante una falla.
+
+
+LUNA Y PAULA 
+
+

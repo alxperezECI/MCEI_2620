@@ -1,0 +1,23 @@
+Ecuación diferencial: $m\frac{d^2x}{dt^2} + c\frac{dx}{dt} + kx = 0$
+la masa es de 20 kg 
+constante de resorte es de 20 N/m
+condiciones iniciales: t = 0 
+desplazamiento inicial: x(0) = 1 m
+velocidad inicial: v(0) = 0 m/s
+intervalo de tiempo: 0 a 15s
+ casos de amortiguamiento:
+1. Amortiguamiento subamortiguado: c = 5 N·s
+2. Amortiguamiento críticamente amortiguado: c = 40 N·s
+3. Amortiguamiento sobreamortiguado: c = 200 N·s
+
+y para resoverlo tenemos que tener en ucenta que 
+x1 = x
+x2 = dx/dt = v
+
+y el sistema de ecuaciones diferenciales de primer orden es:
+dx1/dt = x2
+dx2/dt = -(c/m)x2 - (k/m)x1
+
+
+
+

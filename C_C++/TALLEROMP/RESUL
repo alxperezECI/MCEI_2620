@@ -1,0 +1,38 @@
+ INTEGRACION  POR METODO DE TRAPECIOS Y SIMPSON CODIGO DE #include <gsl/gsl_integration.h>
+ 
+  n   |  Integral Aproximada (Trap) |   Error Absoluto   |   Tiempo (ms)
+=========================================================================
+10    | 1.98352354                  | 1.65e-02           | 0.039000    
+20    | 1.99588597                  | 4.11e-03           | 0.001000    
+50    | 1.99934198                  | 6.58e-04           | 0.001000    
+100   | 1.99983550                  | 1.64e-04           | 0.002000    
+500   | 1.99999342                  | 6.58e-06           | 0.004000    
+1000  | 1.99999836                  | 1.64e-06           | 0.009000    
+=========================================================================
+
+=========================================================================
+  n   |  Integral Aproximada (Simpson) |   Error Absoluto   |   Tiempo (ms)
+=========================================================================
+10    | 2.61205375                    | 3.10e-01           | 0.007000    
+20    | 2.56188212                    | 2.60e-01           | 0.001000    
+50    | 2.55987082                    | 2.58e-01           | 0.002000    
+100   | 2.55982735                    | 2.58e-01           | 0.003000    
+500   | 2.55982451                    | 2.58e-01           | 0.009000    
+1000  | 2.55982451                    | 2.58e-01           | 0.015000    
+=========================================================================
+
+INTEGRACION POR METODO DE TRAPECIOS Y SIMPSON CODIGO #include <omp.h>
+simson
+Resultado (paralelo): 2.0000000000   
+Tiempo: 0.02065 segundos
+trapecio
+Resultado (paralelo): 2.0000000000
+Tiempo: 0.01809 segundos
+
+
+comparaciones 
+
+- Corriendo el código de forma secuencial con GSL para valores normales (n < 1000), los tiempos son impresionantes, moviéndose entre 0.001 y 0.015 milisegundos, por otro lado cuando se corre el código de forma paralela con OpenMP, los tiempos son mucho mayores, moviéndose entre 0.018 y 0.020 segundos. Esto indica que para valores pequeños de n, la sobrecarga de la paralelización no compensa el tiempo de ejecución, y el código secuencial es más eficiente.
+- OpenMp es más adecuado para valores grandes de n, donde la carga de trabajo es suficiente para justificar la sobrecarga de la paralelización. En este caso, para n < 1000, el código secuencial con GSL es claramente más eficiente que el código paralelo con OpenMP.
+- En ambos métodos, Trapecio y Simpson, se observa que el método de Trapecio es más eficiente en términos de tiempo de ejecución y precisión para los valores de n probados. El método de Simpson, aunque es más preciso en teoría, no muestra mejoras significativas en la aproximación para los valores de n utilizados en este experimento, y además tiene un tiempo de ejecución mayor. 
+- El costo extra de la paralelización con OpenMP no se justifica para valores pequeños de n, y el método de Trapecio es preferible en este caso. Por lo tanto, para integraciones numéricas con n < 1000, se recomienda utilizar el método de Trapecio en un entorno secuencial para obtener resultados más rápidos y precisos.

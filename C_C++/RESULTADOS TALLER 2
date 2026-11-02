@@ -1,0 +1,448 @@
+LUNA 
+PAULA 
+
+
+1 PUNTO 
+C_C++
+=== MATRIZ ORIGINAL m ===
+ 1  0  2
+ 2 -1  5
+ 0  1 -1
+ 1  3 -1
+
+=== PSEUDOINVERSA DE m ===
+ 0.0512821  0.0769231   0.025641   0.128205
+ 0.0435897  0.0153846  0.0717949   0.258974
+ 0.0589744   0.138462 -0.0205128 -0.0025641
+=== VERIFICACION DE LAS 4 PROPIEDADES DE PENROSE ===
+
+1. Propiedad m * m+ * m = m:
+           1 -2.22045e-16            2
+           2           -1            5
+-2.22045e-16            1           -1
+           1            3           -1
+Diferencia (norma error): 2.57993e-15
+
+2. Propiedad m+ * m * m+ = m+:
+ 0.0512821  0.0769231   0.025641   0.128205
+ 0.0435897  0.0153846  0.0717949   0.258974
+ 0.0589744   0.138462 -0.0205128 -0.0025641
+Diferencia (norma error): 1.44079e-16
+
+3. Propiedad (m * m+)^T = m * m+:
+Transpuesta (m * m+)^T:
+  0.169231   0.353846 -0.0153846   0.123077
+  0.353846   0.830769  -0.123077 -0.0153846
+-0.0153846  -0.123077  0.0923077   0.261538
+  0.123077 -0.0153846   0.261538   0.907692
+Diferencia (norma error): 3.25463e-16
+
+4. Propiedad (m+ * m)^T = m+ * m:
+Transpuesta (m+ * m)^T:
+ 0.333333  0.333333  0.333333
+ 0.333333  0.833333 -0.166667
+ 0.333333 -0.166667  0.833333
+Diferencia (norma error): 3.53271e-16
+
+punto 2 
+
+=== MATRIZ ORIGINAL m ===
+   1   0   2
+   2  -1   5
+   0   1  -1
+   1   3  -1
+=== PSEUDOINVERSA DE m (m+) ===
+   5.1282e-02   7.6923e-02   2.5641e-02   1.2821e-01
+   4.3590e-02   1.5385e-02   7.1795e-02   2.5897e-01
+   5.8974e-02   1.3846e-01  -2.0513e-02  -2.5641e-03
+=== VERIFICACION DE LAS 4 PROPIEDADES DE PENROSE ===
+1. Propiedad m * m+ * m = m (Norma de error):
+2.3179e-15
+2. Propiedad m+ * m * m+ = m+ (Norma de error):
+2.1426e-16
+3. Propiedad (m * m+)^T = m * m+ (Norma de error):
+1.9270e-16
+4. Propiedad (m+ * m)^T = m+ * m (Norma de error):
+2.4825e-16
+
+
+RESULTADOS PUNTO 2
+
+sistemas de ecuaciones lineales 
+
+=== SOLUCION POR GAUSS-JORDAN (x) === C++
+ 0.128545
+ 0.421598
+ 0.118936
+ 0.286855
+-0.231874
+ -0.12869
+0.0129649
+ 0.356885
+-0.125803
+-0.133695
+
+=== MATRIZ A (10x10) === OCTAVE 
+   2   1   0   3   2   1   0   2   1   4
+   1   3   2   0   1   4   2   1   0   2
+   0   2   4   1   3   0   1   2   4   1
+   3   0   1   5   2   1   3   0   2   1
+   2   1   3   2   6   2   1   4   0   3
+   1   4   0   1   2   5   2   1   3   0
+   0   2   1   3   1   2   4   0   2   1
+   2   1   2   0   4   1   0   5   3   2
+   1   0   4   2   0   3   2   3   6   1
+   4   2   1   1   3   0   1   2   1   5
+=== SOLUCION POR GAUSS-JORDAN (x) ===
+   0.128545
+   0.421598
+   0.118936
+   0.286855
+  -0.231874
+  -0.128690
+   0.012965
+   0.356885
+  -0.125803
+  -0.133695
+
+Factorizacion LU 
+
+=== SOLUCION POR FACTORIZACION LU (C++) ===
+ 0.128545
+ 0.421598
+ 0.118936
+ 0.286855
+-0.231874
+ -0.12869
+0.0129649
+ 0.356885
+-0.125803
+-0.133695
+
+
+ailed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+=== SOLUCION POR FACTORIZACION LU (OCTAVE) ===
+   0.128545
+   0.421598
+   0.118936
+   0.286855
+  -0.231874
+  -0.128690
+   0.012965
+   0.356885
+  -0.125803
+  -0.133695
+
+La factorización QR es una técnica de descomposición matricial que expresa cualquier matriz real $A$ (de dimensiones $m \times n$) como el producto de dos matrices:$$A = QR$$
+
+=== SOLUCION POR FACTORIZACION QR (C++) ===
+ 0.128545
+ 0.421598
+ 0.118936
+ 0.286855
+-0.231874
+ -0.12869
+0.0129649
+ 0.356885
+-0.125803
+-0.133695
+
+=== SOLUCION POR FACTORIZACION QR (OCTAVE) ===
+   0.128545
+   0.421598
+   0.118936
+   0.286855
+  -0.231874
+  -0.128690
+   0.012965
+   0.356885
+  -0.125803
+  -0.133695
+
+  COMPARACION DE EFICIENCIA MEDIANTE LA LIBRERIA DE EIGEN3 
+
+  ==========================================================
+           COMPARATIVA DE RENDIMIENTO Y PRECISION         
+==========================================================
+Metodo          | Tiempo (microsegundos) | Residuo ||Ax - b||
+----------------------------------------------------------
+Gauss-Jordan    | 61.336 us              | 1.16441e-15
+Factorizacion LU| 97.101 us              | 4.44089e-16
+Factorizacion QR| 128.318 us             | 8.9509e-16
+==========================================================
+
+
+
+3 Condicionamiento num´erico y estabilidad:
+Calcular el n´umero de condici´on de una matriz mal condicionada.
+para encontrar la condicion se mide lasensibilidad y estabilidad de un sistema ante cambios  pequeños por lo cual atravcez de sus valores singulares yla formula encontraremos la repsuesta 
+
+Si el número de condición es cercano a $1$, la matriz está bien condicionada (es estable)
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+El numero de condicion es: 51.715
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ 
+
+paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+Numero de condicion: 51.715
+Numero de condicion (SVD): 51.715
+paula@COMPUPAU:~/MCEI_2620/Octave$ 
+
+Resolver el sistema con la matriz original y con una perturbaci´on peque˜na.
+
+modificaremos ligeramente los datos de entrada con un vector b para simular un error de medición o un error de redondeo de la computadora 
+
+paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+    Original        Perturbada       Diferencia
+   1.2854e-01   1.2854e-01   7.6379e-07
+   4.2160e-01   4.2160e-01  -2.7629e-06
+   1.1894e-01   1.1894e-01  -3.6955e-08
+   2.8685e-01   2.8686e-01  -3.4864e-06
+  -2.3187e-01  -2.3188e-01   2.3370e-06
+  -1.2869e-01  -1.2869e-01   6.2205e-07
+   1.2965e-02   1.2962e-02   2.5595e-06
+   3.5688e-01   3.5689e-01  -2.3955e-06
+  -1.2580e-01  -1.2580e-01   1.0889e-06
+  -1.3370e-01  -1.3370e-01   2.5138e-08
+Desviacion total (norma de la diferencia):
+6.3006e-06
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+Indice  Original                Perturbada              Diferencia
+------------------------------------------------------------------
+0       0.128545                0.128544                7.6379e-07
+1       0.421598                0.4216          -2.76292e-06
+2       0.118936                0.118936                -3.69549e-08
+3       0.286855                0.286858                -3.48636e-06
+4       -0.231874               -0.231876               2.33702e-06
+5       -0.12869                -0.128691               6.22046e-07
+6       0.0129649               0.0129623               2.55947e-06
+7       0.356885                0.356887                -2.39555e-06
+8       -0.125803               -0.125804               1.08886e-06
+9       -0.133695               -0.133695               2.51382e-08
+
+Norma de la desviacion total: 6.3006e-06
+
+Analizar c´omo afecta el error a la soluci´on y discutir la estabilidad de los m´etodos
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+Metodo                  Tiempo (us)     Error a la Solucion     Residual ||Ax-b||
+--------------------------------------------------------------------------
+1. Gauss (Piv. Parcial) 81              3.54229e-15             7.10543e-15
+2. Factorizacion LU     71              2.27799e-15             8.88178e-15
+3. Factorizacion QR     132             8.38641e-15             1.08052e-14
+
+ue tiene mas operaciones debido a un nuevo vectorincrustado gauss es un metodo muy reptitivo que alg ser una matriz grande pues tienede a demorarse bastante aunque como podemos ver  no tanto como la QR parece que el mejor seria el metodo de U y ek de QR que pensamos tiene sentido ya q
+
+Metodo                   Tiempo (us)    Error a la Solucion    Residual ||Ax-b||
+----------------------------------------------------------------------------------
+1. Gauss                  245.81          1.19e-15          0.00e+00
+2. Factorizacion LU       82.02          1.19e-15          0.00e+00
+3. Factorizacion QR       72.00          3.06e-15          9.57e-15
+
+es muy diferente los tiempos en octave y en C++, en c++ la eliminacion es mas optimatizada que calcula de una manera triangular mas rapida para resolcer el sistema por lo cual apesar de ser un metodo amplip y de muchas operaciones en c++ es mas rapido debido a la librira especializada mientras octave es través de rutinas hiper-optimizadas
+
+Tanto  en C++ como Octave se delega el cálculo pesado al mismo nivel de código compilado. por lo cual lu se dmeora casi lo mismo en los dos 
+
+
+ 4 Descomposicion QR y SVD para inversa de matrices: Calcular la inversa de una matriz usando:
+ Método directo (inversa estandar):
+
+
+
+
+paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+--- Metodo Directo (Octave) ---
+Tiempo (us): 187.16
+Residual ||A * A_inv - I||: 4.06e-15
+Matriz Inversa:
+ Columns 1 through 6:
+
+  -7.6379e-02   2.7629e-01   3.6955e-03   3.4864e-01  -2.3370e-01  -6.2205e-02
+   2.7629e-01   6.1643e-01   3.0919e-01   3.3584e-01  -5.5306e-01  -2.0445e-01
+   3.6955e-03   3.0919e-01   2.0240e-01   1.5988e-01  -6.2472e-02  -1.6717e-01
+   3.4864e-01   3.3584e-01   1.5988e-01   3.1789e-01  -2.6924e-01  -1.8443e-01
+  -2.3370e-01  -5.5306e-01  -6.2472e-02  -2.6924e-01   4.9371e-01   3.1401e-01
+  -6.2205e-02  -2.0445e-01  -1.6717e-01  -1.8443e-01   3.1401e-01   2.3928e-01
+  -2.5595e-01  -8.0927e-02  -1.8283e-01  -7.4802e-02   4.6241e-02  -7.1836e-02
+   2.3955e-01   5.4273e-01   2.9319e-03   2.7584e-01  -4.6143e-01  -3.6609e-01
+  -1.0889e-01  -4.4345e-01  -2.5601e-02  -2.2516e-01   1.7556e-01   2.4993e-01
+  -2.5138e-03  -3.7699e-01  -1.2109e-01  -3.9760e-01   3.1851e-01   1.2428e-01
+
+ Columns 7 through 10:
+
+  -2.5595e-01   2.3955e-01  -1.0889e-01  -2.5138e-03
+  -8.0927e-02   5.4273e-01  -4.4345e-01  -3.7699e-01
+  -1.8283e-01   2.9319e-03  -2.5601e-02  -1.2109e-01
+  -7.4802e-02   2.7584e-01  -2.2516e-01  -3.9760e-01
+   4.6241e-02  -4.6143e-01   1.7556e-01   3.1851e-01
+  -7.1836e-02  -3.6609e-01   2.4993e-01   1.2428e-01
+   3.6249e-01   8.9550e-02   3.5545e-02   1.4548e-01
+   8.9550e-02   8.0770e-01  -3.0660e-01  -4.6730e-01
+   3.5545e-02  -3.0660e-01   2.4753e-01   2.7533e-01
+   1.4548e-01  -4.6730e-01   2.7533e-01   3.6819e-01
+
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+--- Metodo Directo (C++) ---
+Tiempo (us): 88
+Residual ||A * A_inv - I||: 2.72826e-15
+
+Matriz Inversa:
+  -0.076379    0.276292  0.00369549    0.348636   -0.233702  -0.0622046   -0.255947    0.239555   -0.108886 -0.00251382
+   0.276292    0.616433    0.309189    0.335838   -0.553063    -0.20445  -0.0809273    0.542729   -0.443453    -0.37699
+ 0.00369549    0.309189    0.202405    0.159881  -0.0624721   -0.167172   -0.182829  0.00293186  -0.0256009   -0.121093
+   0.348636    0.335838    0.159881     0.31789   -0.269241   -0.184429  -0.0748016    0.275841   -0.225163   -0.397597
+  -0.233702   -0.553063  -0.0624721   -0.269241    0.493713    0.314011    0.046241   -0.461429    0.175555    0.318514
+ -0.0622046    -0.20445   -0.167172   -0.184429    0.314011    0.239276  -0.0718363   -0.366093    0.249933    0.124275
+  -0.255947  -0.0809273   -0.182829  -0.0748016    0.046241  -0.0718363    0.362487   0.0895501   0.0355447    0.145484
+   0.239555    0.542729  0.00293186    0.275841   -0.461429   -0.366093   0.0895501    0.807701   -0.306597   -0.467304
+  -0.108886   -0.443453  -0.0256009   -0.225163    0.175555    0.249933   0.0355447   -0.306597    0.247531    0.275333
+-0.00251382    -0.37699   -0.121093   -0.397597    0.318514    0.124275    0.145484   -0.467304    0.275333    0.368194
+
+
+
+Descomposicion QR:
+
+aula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+--- Metodo QR (C++) ---
+Tiempo (us): 161
+Residual ||A * A_inv - I||: 3.8364e-15
+
+Matriz Inversa:
+  -0.076379    0.276292  0.00369549    0.348636   -0.233702  -0.0622046   -0.255947    0.239555   -0.108886 -0.00251382
+   0.276292    0.616433    0.309189    0.335838   -0.553063    -0.20445  -0.0809273    0.542729   -0.443453    -0.37699
+ 0.00369549    0.309189    0.202405    0.159881  -0.0624721   -0.167172   -0.182829  0.00293186  -0.0256009   -0.121093
+   0.348636    0.335838    0.159881     0.31789   -0.269241   -0.184429  -0.0748016    0.275841   -0.225163   -0.397597
+  -0.233702   -0.553063  -0.0624721   -0.269241    0.493713    0.314011    0.046241   -0.461429    0.175555    0.318514
+ -0.0622046    -0.20445   -0.167172   -0.184429    0.314011    0.239276  -0.0718363   -0.366093    0.249933    0.124275
+  -0.255947  -0.0809273   -0.182829  -0.0748016    0.046241  -0.0718363    0.362487   0.0895501   0.0355447    0.145484
+   0.239555    0.542729  0.00293186    0.275841   -0.461429   -0.366093   0.0895501    0.807701   -0.306597   -0.467304
+  -0.108886   -0.443453  -0.0256009   -0.225163    0.175555    0.249933   0.0355447   -0.306597    0.247531    0.275333
+-0.00251382    -0.37699   -0.121093   -0.397597    0.318514    0.124275    0.145484   -0.467304    0.275333    0.368194
+
+paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+--- Metodo QR (Octave) ---
+Tiempo (us): 687.12
+Residual ||A * A_inv - I||: 3.97e-15
+Matriz Inversa:
+ Columns 1 through 6:
+
+  -7.6379e-02   2.7629e-01   3.6955e-03   3.4864e-01  -2.3370e-01  -6.2205e-02
+   2.7629e-01   6.1643e-01   3.0919e-01   3.3584e-01  -5.5306e-01  -2.0445e-01
+   3.6955e-03   3.0919e-01   2.0240e-01   1.5988e-01  -6.2472e-02  -1.6717e-01
+   3.4864e-01   3.3584e-01   1.5988e-01   3.1789e-01  -2.6924e-01  -1.8443e-01
+  -2.3370e-01  -5.5306e-01  -6.2472e-02  -2.6924e-01   4.9371e-01   3.1401e-01
+  -6.2205e-02  -2.0445e-01  -1.6717e-01  -1.8443e-01   3.1401e-01   2.3928e-01
+  -2.5595e-01  -8.0927e-02  -1.8283e-01  -7.4802e-02   4.6241e-02  -7.1836e-02
+   2.3955e-01   5.4273e-01   2.9319e-03   2.7584e-01  -4.6143e-01  -3.6609e-01
+  -1.0889e-01  -4.4345e-01  -2.5601e-02  -2.2516e-01   1.7556e-01   2.4993e-01
+  -2.5138e-03  -3.7699e-01  -1.2109e-01  -3.9760e-01   3.1851e-01   1.2428e-01
+
+ Columns 7 through 10:
+
+  -2.5595e-01   2.3955e-01  -1.0889e-01  -2.5138e-03
+  -8.0927e-02   5.4273e-01  -4.4345e-01  -3.7699e-01
+  -1.8283e-01   2.9319e-03  -2.5601e-02  -1.2109e-01
+  -7.4802e-02   2.7584e-01  -2.2516e-01  -3.9760e-01
+   4.6241e-02  -4.6143e-01   1.7556e-01   3.1851e-01
+  -7.1836e-02  -3.6609e-01   2.4993e-01   1.2428e-01
+   3.6249e-01   8.9550e-02   3.5545e-02   1.4548e-01
+   8.9550e-02   8.0770e-01  -3.0660e-01  -4.6730e-01
+   3.5545e-02  -3.0660e-01   2.4753e-01   2.7533e-01
+   1.4548e-01  -4.6730e-01   2.7533e-01   3.6819e-01
+
+
+   Descomposici´on en valores singulares (SVD):
+
+
+   paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+--- Metodo SVD (Octave) ---
+Tiempo (us): 3041.98
+Residual ||A * A_inv - I||: 7.52e-15
+Matriz Inversa:
+ Columns 1 through 6:
+
+  -7.6379e-02   2.7629e-01   3.6955e-03   3.4864e-01  -2.3370e-01  -6.2205e-02
+   2.7629e-01   6.1643e-01   3.0919e-01   3.3584e-01  -5.5306e-01  -2.0445e-01
+   3.6955e-03   3.0919e-01   2.0240e-01   1.5988e-01  -6.2472e-02  -1.6717e-01
+   3.4864e-01   3.3584e-01   1.5988e-01   3.1789e-01  -2.6924e-01  -1.8443e-01
+  -2.3370e-01  -5.5306e-01  -6.2472e-02  -2.6924e-01   4.9371e-01   3.1401e-01
+  -6.2205e-02  -2.0445e-01  -1.6717e-01  -1.8443e-01   3.1401e-01   2.3928e-01
+  -2.5595e-01  -8.0927e-02  -1.8283e-01  -7.4802e-02   4.6241e-02  -7.1836e-02
+   2.3955e-01   5.4273e-01   2.9319e-03   2.7584e-01  -4.6143e-01  -3.6609e-01
+  -1.0889e-01  -4.4345e-01  -2.5601e-02  -2.2516e-01   1.7556e-01   2.4993e-01
+  -2.5138e-03  -3.7699e-01  -1.2109e-01  -3.9760e-01   3.1851e-01   1.2428e-01
+
+ Columns 7 through 10:
+
+  -2.5595e-01   2.3955e-01  -1.0889e-01  -2.5138e-03
+  -8.0927e-02   5.4273e-01  -4.4345e-01  -3.7699e-01
+  -1.8283e-01   2.9319e-03  -2.5601e-02  -1.2109e-01
+  -7.4802e-02   2.7584e-01  -2.2516e-01  -3.9760e-01
+   4.6241e-02  -4.6143e-01   1.7556e-01   3.1851e-01
+  -7.1836e-02  -3.6609e-01   2.4993e-01   1.2428e-01
+   3.6249e-01   8.9550e-02   3.5545e-02   1.4548e-01
+   8.9550e-02   8.0770e-01  -3.0660e-01  -4.6730e-01
+   3.5545e-02  -3.0660e-01   2.4753e-01   2.7533e-01
+   1.4548e-01  -4.6730e-01   2.7533e-01   3.6819e-01
+paula@COMPUPAU:~/MCEI_2620/Octave$ 
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+--- Metodo SVD (C++) ---
+Tiempo (us): 472
+Residual ||A * A_inv - I||: 8.19078e-15
+
+Matriz Inversa:
+  -0.076379    0.276292  0.00369549    0.348636   -0.233702  -0.0622046   -0.255947    0.239555   -0.108886 -0.00251382
+   0.276292    0.616433    0.309189    0.335838   -0.553063    -0.20445  -0.0809273    0.542729   -0.443453    -0.37699
+ 0.00369549    0.309189    0.202405    0.159881  -0.0624721   -0.167172   -0.182829  0.00293186  -0.0256009   -0.121093
+   0.348636    0.335838    0.159881     0.31789   -0.269241   -0.184429  -0.0748016    0.275841   -0.225163   -0.397597
+  -0.233702   -0.553063  -0.0624721   -0.269241    0.493713    0.314011    0.046241   -0.461429    0.175555    0.318514
+ -0.0622046    -0.20445   -0.167172   -0.184429    0.314011    0.239276  -0.0718363   -0.366093    0.249933    0.124275
+  -0.255947  -0.0809273   -0.182829  -0.0748016    0.046241  -0.0718363    0.362487   0.0895501   0.0355447    0.145484
+   0.239555    0.542729  0.00293186    0.275841   -0.461429   -0.366093   0.0895501    0.807701   -0.306597   -0.467304
+  -0.108886   -0.443453  -0.0256009   -0.225163    0.175555    0.249933   0.0355447   -0.306597    0.247531    0.275333
+-0.00251382    -0.37699   -0.121093   -0.397597    0.318514    0.124275    0.145484   -0.467304    0.275333    0.368194
+
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/matrices$ ./build/main
+==========================================================================
+          COMPARACION Y ESTABILIDAD NUMERICA (C++ / Eigen)                
+==========================================================================
+Metodo          Tiempo (us)     Residual ||A*A_inv - I||        Estabilidad
+--------------------------------------------------------------------------
+1. Directo      160             2.72826e-15     Moderada
+2. QR           174             3.8364e-15      Alta
+3. SVD          422             8.19078e-15     Maxima
+==========================================================================
+
+
+paula@COMPUPAU:~/MCEI_2620/Octave$ octave --no-gui leer.m
+Failed to create wl_display (No such file or directory)
+qt.qpa.plugin: Could not load the Qt platform plugin "wayland" in "" even though it was found.
+==========================================================================
+           COMPARACION Y ESTABILIDAD NUMERICA (Octave)                    
+==========================================================================
+Metodo        Tiempo (us)    Residual ||A*A_inv - I||    Estabilidad
+--------------------------------------------------------------------------
+1. Directo    838.99           4.06e-15                 Moderada
+2. QR         4070.04           3.97e-15                 Alta
+3. SVD        2614.97           7.52e-15                 Maxima
+==========================================================================
+paula@COMPUPAU:~/MCEI_2620/Octave$ 
+
+ Utiliza matrices ortogonales, junto con la matriz diagonal de valores singulares, permite aislar y controlar directamente el espectro de la matriz.
+SVD permite manejar o truncar dichos valores de forma segura mediante la pseudoinversa, evitando la explosión de errores numéricos por división cercana a cero.
+
+

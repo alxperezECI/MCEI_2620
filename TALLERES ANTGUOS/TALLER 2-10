@@ -1,0 +1,47 @@
+-- -PRIMERAS 5 MUESTRAS CALCULADAS EN C++ -- -t[s] | v[m / s] | theta[rad] | omega[rad / s]-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --0.0000 | 0.5426 | 1.2017 | -0.1089 0.2000 | 0.5539 | 1.1799 | -0.1541 0.4000 | 0.5768 | 1.1400 | -0.1867 0.6000 | 0.5998 | 1.1053 | -0.1630 0.8000 | 0.6225 | 1.0748 | -0.1429
+
+                                                                                                                                                                                                                                                                                                                                   La función gsl_deriv_central de la biblioteca GNU Scientific
+                                                                                                                                                                                                                                                                                                                                   Library(GSL)
+está diseñada exclusivamente para calcular la derivada de una funcion que sea matematicamente continua y evaluable
+
+    para usar la gsl_function F;
+
+se debe de definir una estructura que contendra un puntero a la funcion analitica 
+
+evalúa la función en puntos adaptativos como $f(t + h)$ y $f(t - h)$ para estimar la derivada y acotar el error numérico.
+PARTE 7 
+
+----------Comparacion de resultados ----------
+  CRITERIO                    |  Octave                                                                       | Python                                                             | C/C++
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Carga de datos                |csvread                                                                        |np.loadtxt                                                          |std::ifstream
+Cálculo de x,˙ y˙             |Bucle for con la fórmula $v_{x,i} = \frac{x_{i+1}-x_{i-1}}{2h}$                |vx = np.gradient(x, t)                                              |for con la fórmula $v_{x,i} = \frac{x_{i+1}-x_{i-1}}{2h}$
+Cálculo de v                  |v = sqrt(vx.^2 + vy.^2)                                                        |v = np.sqrt(vx**2 + vy**2)                                          |for: v[i] = std::sqrt(vx[i]*vx[i] + vy[i]*vy[i])
+Cálculo de θ                  |theta = unwrap(atan2(vy, vx))                                                  |theta = np.unwrap(np.arctan2(vy, vx))                               |std::atan2(vy[i], vx[i])
+Cálculo de ω                  |Bucle for con la fórmula $\omega_i = \frac{\theta_{i+1}-\theta_{i-1}}{2h}$     |omega = np.gradient(theta, t)                                       |for con la fórmula $\omega_i = \frac{\theta_{i+1}-\theta_{i-1}}{2h}$
+Manejo de arreglos            |matrices y vectores                                                            |Arreglos vectorizados                                               |std::vector<double>
+Facilidad de implementación   |Entorno interpretado                                                           |Código conciso, legible y funciones integradas                      |Requiere parsing manual, gestión de tipos/memoria y compilación
+Control sobre el algoritmo    |Control total en bucles propios, limitado en funciones internas                |Las funciones de biblioteca ocultan la lógica interna de los bordes |Control absoluto sobre la fórmula de diferencia, extremos y precisión
+Tiempo de ejecución           |1.560139 segundos                                                              |94.5068 ms                                                          |C++: 0.007700 ms
+                                        
+
+
+
+8 PREGUNTAS 
+
+1. ¿Qué diferencia existe entre calcular la velocidad lineal a partir de x,˙ y˙ y calcularla directamente
+desde diferencias de posición?
+LLegas al mismo punto pero pero no sabes realemnte hacia donde esta apuntando el robot entonces llegamos al mismo punto en el proano pero no sabemos si el robot exstamirando hacia adelante o hacia atras.
+2. ¿Por qué un error pequeño en x,˙ y˙ puede producir un efecto mayor al calcular ω?
+por que se esta realizando una derivada de una derivada y cualquier error se amplifica en el proceso de cálculo, especialmente cuando se trata de la velocidad angular ω, que depende de la variación de θ.
+3. ¿Qué ocurre si se reduce h manteniendo un nivel de ruido fijo en las posiciones?
+Se incrementa la sensibilidad a los errores de medición, lo que puede llevar a una mayor variación en los cálculos de ω.
+4. ¿Por qué ω requiere especial cuidado con el desenvolvimiento de θ?
+Porque la velocidad angular ω depende directamente de la variación de θ, y cualquier error en la medición o cálculo de θ se amplificará al calcular ω.
+
+10. REFLEXION 
+Para calcular la cinemática del robot a partir de los datos $(x, y, t)$:   
+primero se calculan las velocidades lineales $v_x$ y $v_y$ usando diferencias centradas, luego se calcula la magnitud de la velocidad $v$ y el ángulo de orientación $\theta$. Finalmente, se calcula la velocidad angular $\omega$ a partir de las diferencias de $\theta$.
+despues calculamos la velocidad lineal a partir de las diferencias de posición y comparamos los resultados obtenidos con los métodos anteriores. Se observa que ambos métodos llegan al mismo punto, pero el cálculo directo de la velocidad lineal no proporciona información sobre la dirección en la que se está moviendo el robot, lo que puede ser crucial para aplicaciones de navegación y control.
+luego aplicamos unwrap a θ.
+finalmente derivamos θ para obtener ω, y se observa que cualquier error en la medición de θ se amplifica al calcular ω, lo que requiere especial cuidado en el manejo de los datos y la elección del paso h para minimizar el impacto del ruido en las mediciones.

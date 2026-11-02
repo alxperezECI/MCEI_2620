@@ -1,0 +1,83 @@
+1PUNTO 
+
+' Formulación del Problema Continuo
+\mathcal{I} = \int_{a}^{b} f(x) \, dx
+f(x) = e^{-0.4x} \left(1 + 0.5\sin(3x)\right)
+a = 0, b = 8
+discretizamos el tomaño h = 8/n y kis nodos de integracion para i = 0,1,2, n
+si tiene expresion analitica dereferecnia 
+$$\mathcal{I}_{\text{ref}} = \left[ -\frac{e^{-0.4x}}{0.4} + 0.5 e^{-0.4x} \left( \frac{-0.4\sin(3x) - 3\cos(3x)}{0.4^2 + 3^2} \right) \right]_0^8 \approx 2.30231617823528$$
+$$\mathcal{I}_{\text{ref}} \approx 2.30231617823528
+la energia acumulada :
+Representa el valor acumulado o la energía/carga total entregada por la señal a lo largo del intervalo $x \in [0, 8]$.
+la caracteristica que puede afectar la aproximacion: es el termino senusoidal 
+en este ejerccio solo se hara la regla compuesta del trapecio 
+
+paula@COMPUPAU:~/MCEI_2620/Octave/TALLERIYDN$ octave --no-gui leer2.m
+=========================================================================
+  n   |  Integral Aproximada (Trap) |   Error Absoluto   |   Tiempo (s)
+=========================================================================
+10    | 2.49407251                  | 1.92e-01           | 0.001312    
+20    | 2.54492972                  | 2.43e-01           | 0.000074    
+50    | 2.55750278                  | 2.55e-01           | 0.000043    
+100   | 2.55924621                  | 2.57e-01           | 0.000045    
+500   | 2.55980140                  | 2.57e-01           | 0.000053    
+1000  | 2.55981873                  | 2.58e-01           | 0.000066    
+=========================================================================
+
+--- SEGUNDA APROXIMACION: quad() DE OCTAVE ---
+Integral aproximada (quad) : 2.55982451
+Error absoluto             : 2.58e-01
+Tiempo de ejecucion        : 0.000502 s
+=========================================================================
+
+paula@COMPUPAU:~/MCEI_2620/C_C++/TALLERIYDN/TALLER$ ./ejecutable
+=========================================================================
+  n   |  Integral Aproximada (Trap) |   Error Absoluto   |   Tiempo (ms)
+=========================================================================
+10    | 2.49407251                  | 1.92e-01           | 0.037000    
+20    | 2.54492972                  | 2.43e-01           | 0.006000    
+50    | 2.55750278                  | 2.55e-01           | 0.004000    
+100   | 2.55924621                  | 2.57e-01           | 0.006000    
+500   | 2.55980140                  | 2.57e-01           | 0.020000    
+1000  | 2.55981873                  | 2.58e-01           | 0.037000    
+=========================================================================
+
+--- SEGUNDA APROXIMACION: GSL (qags) ---
+Integral aproximada (GSL)  : 2.55982451
+Error estimado GSL         : 1.46e-10
+Error real vs I_ref        : 2.58e-01
+Tiempo de ejecucion        : 0.026000 ms
+=========================================================================
+paula@COMPUPAU:~/MCEI_2620/C_C++/TALLERIYDN/TALLER$ 
+
+paula@COMPUPAU:~/MCEI_2620/Python/TALLERIYDN$ 
+=========================================================================
+  n   |  Integral Aproximada (Trap) |   Error Absoluto   |   Tiempo (ms)
+=========================================================================
+10    | 2.49407251                  | 1.92e-01           | 23.749829   
+20    | 2.54492972                  | 2.43e-01           | 0.129165    
+50    | 2.55750278                  | 2.55e-01           | 0.065120    
+100   | 2.55924621                  | 2.57e-01           | 0.039584    
+500   | 2.55980140                  | 2.57e-01           | 0.054653    
+1000  | 2.55981873                  | 2.58e-01           | 0.060300    
+=========================================================================
+
+--- SEGUNDA APROXIMACIÓN: SciPy (quad) ---
+Integral aproximada (SciPy) : 2.55982451
+Error estimado SciPy        : 1.46e-10
+Error real vs I_ref         : 2.58e-01
+Tiempo de ejecución         : 0.737252 ms
+=========================================================================
+
+1. ¿Qué cambia en el trapecio al aumentar n?
+La curva de la función se empieza a partir en pedazos cada vez más pequeños. Como los segmentos rectos del trapecio ahora son más cortos, se pegan mucho mejor a las curvas de la función. Eso hace que el resultado se vuelva más exacto y las cifras se vayan estabilizando, aunque el computador tenga que hacer más sumas y operaciones.
+2. ¿Qué diferencia hay entre aumentar n y reducir la tolerancia de un método adaptativo?
+Aumentar n es algo mas preciso de division de todo el camino recorrido sin importar, si es curva o recta mientras que en reduccion de la tolerancia, 
+3. ¿Mayor precisión implica necesariamente mayor costo?
+Pues en el caso de estemetodo si por que para mayor presicion debo ingresarmas puntos dentro de mi codigo por locual el computador tiene que hacer un mayor procesamiento, aunque en tambien depende delprograma en el que se procese la informacion ya que c+ al ser un lenguaje compilado se demora menos pero python al ser interpretado tiene que parar por la capa de interpretacion y tiene mas carga interna.
+4. Compare el error estimado por GSL/SciPy con el error respecto a la referencia.
+bueno pues el error que muestra las libreriras es un calculo interno que hace el programa para saber si esta resolveindo de manera correcta , pero el error respecto a lareferncia es simplemente la resta contra el numero que nos dieron anteriormente en el trabajo 
+
+TRABAJO DE PAULA Y LUNA 
+
