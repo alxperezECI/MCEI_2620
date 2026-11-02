@@ -1,0 +1,3 @@
+/home/lunam/MCEI_2620/C_C++/parte_practica/build/CMakeFiles/part1.dir
+/home/lunam/MCEI_2620/C_C++/parte_practica/build/CMakeFiles/edit_cache.dir
+/home/lunam/MCEI_2620/C_C++/parte_practica/build/CMakeFiles/rebuild_cache.dir

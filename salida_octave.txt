@@ -1,0 +1,9 @@
+=== Coeficientes Octave ===
+beta0 = -123.418350
+beta1 (V) = 6.322569
+beta2 (I) = 19.042068
+beta3 (T) = -0.206825
+
+MSE = 240.376517
+RMSE = 15.504081
+cond(X) = 3.472169e+02
