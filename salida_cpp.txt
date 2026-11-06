@@ -1,0 +1,28 @@
+Numero de datos: 100
+
+=== Coeficientes del modelo ===
+beta0 = -123.418
+beta1 (V) = 6.32257
+beta2 (I) = 19.0421
+beta3 (T) = -0.206825
+
+=== Residuales y error cuadratico medio ===
+SSE = 24037.7
+MSE = 240.377
+RMSE = 15.5041
+
+Primeros 5 residuales:
+  y = 40.59  yhat = 31.986  r = 8.60401
+  y = 234.06  yhat = 225.795  r = 8.26516
+  y = 131.04  yhat = 136.049  r = -5.00934
+  y = 150.81  yhat = 148.679  r = 2.13137
+  y = 144.14  yhat = 171.723  r = -27.5835
+
+=== Influencia relativa (coeficientes estandarizados) ===
+V: 0.548865
+I: 0.814361
+T: -0.0442736
+
+=== Numero de condicion ===
+cond(X) = 347.217
+cond(X'X) = 120560

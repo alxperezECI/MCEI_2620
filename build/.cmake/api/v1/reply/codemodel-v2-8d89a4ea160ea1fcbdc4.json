@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Eigen3::Eigen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Eigen3__Eigen-Debug-c5ad66f7d03b4ffea7e7.json",
+					"name" : "Eigen3::Eigen",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-9ad1a58d4644cf6543fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Practico",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "part1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-part1-Debug-e4bc3e7030471f7fc7dc.json",
+					"name" : "part1",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/lunam/MCEI_2620/C_C++/parte_practica/build",
+		"source" : "/home/lunam/MCEI_2620/C_C++/parte_practica"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

@@ -1,0 +1,17 @@
+1. ¿Qué variable tiene mayor impacto en la potencia?
+La Corriente (I). Su coeficiente estandarizado (0.814) es el más alto, superando al voltaje (0.549) y a la temperatura (-0.044).
+
+2. ¿Cómo influye la temperatura en el rendimiento?
+Tiene un efecto negativo pero muy bajo. Por cada °C que sube, la potencia baja apenas 0.21 W. Es la variable menos influyente del modelo.
+
+3. ¿Qué ocurre al aumentar el número de muestras?
+Mejora la precisión del modelo. Más datos reducen el error de estimación y hacen que los coeficientes sean más confiables.
+
+4. ¿Por qué QR es preferible a ecuaciones normales?
+Porque es numéricamente más estable. Las ecuaciones normales elevan al cuadrado el número de condición (de 347 a 120,560), lo que amplifica los errores de redondeo. QR evita esto.
+
+5.¿Cómo se interpreta físicamente cada coeficiente?
+β0(-123.4): Potencia base teórica (ajuste matemático).
+β1(6.32): Aporte del voltaje. +6.32 W por cada Voltio.
+β2(19.04): Aporte de la corriente. +19.04 W por cada Amperio (el más importante).
+β3(-0.21): Pérdida por calor. -0.21 W por cada °C adicional.
